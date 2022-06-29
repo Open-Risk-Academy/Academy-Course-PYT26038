@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# (c) 2017-2021 Open Risk (https://www.openriskmanagement.com)
+# (c) 2017-2022 Open Risk (https://www.openriskmanagement.com)
 #
 # TransitionMatrix is licensed under the Apache 2.0 license a copy of which is included
 # in the source distribution of TransitionMatrix. This is notwithstanding any licenses of
@@ -18,6 +18,7 @@
 import pandas as pd
 import transitionMatrix as tm
 from transitionMatrix.estimators import simple_estimator as es
+
 dataset_path = "../../datasets/"
 data = pd.read_csv(dataset_path + 'LoanStats3a_Step2.csv')
 print(data.describe())
