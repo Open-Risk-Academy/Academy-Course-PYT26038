@@ -14,11 +14,11 @@
 
 # Example script. Open Risk Academy Course Step 1.
 
-import transitionMatrix as tm
 import numpy as np
+import transitionMatrix as tm
 from scipy.linalg import expm
-from transitionMatrix.predefined import JLT
 from transitionMatrix import dataset_path
+from transitionMatrix.predefined import JLT
 
 A = tm.TransitionMatrix(values=[[0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6]])
 B = tm.TransitionMatrix(dimension=4)
