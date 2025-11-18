@@ -1,0 +1,12 @@
+[project]
+name = "academy-course-pyt26038"
+version = "0.1.0"
+description = "Scripts supporting the Open Risk Academy course Analysis of Credit Migration using Python TransitionMatrix "
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "numpy>=2.3.5",
+    "pandas>=2.3.3",
+    "scipy>=1.16.3",
+    "transitionmatrix>=0.5.1",
+]
