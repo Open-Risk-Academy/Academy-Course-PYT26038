@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# (c) 2017-2025  Open Risk (https://www.openriskmanagement.com)
+# (c) 2017-2026  Open Risk (https://www.openriskmanagement.com)
 #
 # TransitionMatrix is licensed under the Apache 2.0 license a copy of which is included
 # in the source distribution of TransitionMatrix. This is notwithstanding any licenses of
@@ -18,8 +18,9 @@
 import pandas as pd
 import transitionMatrix as tm
 from transitionMatrix.estimators import cohort_estimator as es
+from transitionMatrix.utils.preprocessing import transitions_summary, unique_timestamps
 
-dataset_path = "../../datasets/"
+dataset_path = "datasets/"
 
 data = pd.read_csv(dataset_path + 'synthetic_data2.csv', dtype={'State': str})
 sorted_data = data.sort_values(['ID', 'Time'], ascending=[True, True])
@@ -30,8 +31,9 @@ print(myState.validate_dataset(dataset=sorted_data))
 
 cohort_data, cohort_intervals = tm.utils.bin_timestamps(data, cohorts=5)
 
-myEstimator = es.CohortEstimator(states=myState, ci={'method': 'goodman', 'alpha': 0.05})
-labels = {'Timestamp': 'Cohort', 'State': 'State', 'ID': 'ID'}
+cohort_bounds = unique_timestamps(sorted_data)
+myEstimator = es.CohortEstimator(states=myState, cohort_bounds=cohort_bounds, ci={'method': 'goodman', 'alpha': 0.05})
+labels = {'Time': 'Time', 'State': 'State', 'ID': 'ID'}
 result = myEstimator.fit(cohort_data, labels=labels)
 
 myMatrixSet = tm.TransitionMatrixSet(values=result, temporal_type='Incremental')

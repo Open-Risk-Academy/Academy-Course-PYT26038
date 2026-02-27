@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# (c) 2017-2025  Open Risk (https://www.openriskmanagement.com)
+# (c) 2017-2026  Open Risk (https://www.openriskmanagement.com)
 #
 # TransitionMatrix is licensed under the Apache 2.0 license a copy of which is included
 # in the source distribution of TransitionMatrix. This is notwithstanding any licenses of
@@ -18,7 +18,7 @@ import numpy as np
 import transitionMatrix as tm
 from scipy.linalg import expm
 from transitionMatrix import dataset_path
-from transitionMatrix.predefined import JLT
+from transitionMatrix.creditratings.predefined import JLT
 
 A = tm.TransitionMatrix(values=[[0.6, 0.2, 0.2], [0.2, 0.6, 0.2], [0.2, 0.2, 0.6]])
 B = tm.TransitionMatrix(dimension=4)
